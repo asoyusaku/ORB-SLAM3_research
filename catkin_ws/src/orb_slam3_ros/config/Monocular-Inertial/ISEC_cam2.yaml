@@ -1,0 +1,84 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+# Camera Type: PinHole
+Camera.type: "PinHole"
+
+# Camera calibration and distortion parameters (Camera1)
+# Original Source: cam2 intrinsics
+Camera1.fx: 890.7401601962323
+Camera1.fy: 891.042952591021
+Camera1.cx: 365.5319985249804
+Camera1.cy: 279.23431884465856
+
+# Distortion coefficients (k1, k2, p1, p2)
+# Original Source: cam2 distortion_coeffs
+Camera1.k1: -0.21153264182795248
+Camera1.k2: 0.1735585762514812
+Camera1.p1: 0.001321930248274686
+Camera1.p2: -0.00008849967839400838
+
+# Camera resolution
+Camera.width: 720
+Camera.height: 540
+
+# Camera frames per second 
+Camera.fps: 20
+
+# Color order of the images (0: BGR, 1: RGB. Usually 1 for ROS)
+Camera.RGB: 1
+
+# 【追加】Time delay between IMU and Camera (seconds)
+# Original Source: timeshift_cam_imu: 0.010900...
+Camera1.Td: 0.010900041719081245
+
+#--------------------------------------------------------------------------------------------
+# IMU Parameters (Transformation and Noise)
+#--------------------------------------------------------------------------------------------
+
+# Transformation from Camera to Body (IMU)
+# 【修正】Calculated Inverse Matrix of original T_cam_imu
+IMU.T_b_c1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [-0.01471745, -0.00291551,  0.99988744,  0.057443,
+           0.99987723,  0.00533461,  0.01473285, -0.247917,
+          -0.00537696,  0.99998152,  0.00283664, -0.002946,
+           0.0, 0.0, 0.0, 1.0]
+
+# IMU noise (Standard values)
+IMU.NoiseGyro: 0.004
+IMU.NoiseAcc: 0.04
+IMU.GyroWalk: 0.0002
+IMU.AccWalk: 0.002
+IMU.Frequency: 200.0
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1250
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 8
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500.0

@@ -1,0 +1,1 @@
+/home/dbdntkzn/Desktop/ORB-SLAM/catkin_ws/devel/.private/orb_slam3_ros/share/roseus/ros/orb_slam3_ros/manifest.l
